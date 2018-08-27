@@ -1,19 +1,12 @@
 package cm.yolo.rudralabs.cameratos3;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-
 import android.Manifest;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -77,6 +70,7 @@ public class MainActivity extends Activity
     {
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
             photo = (Bitmap) data.getExtras().get("data");
+            imageView.setImageBitmap(photo);
 
             if (resultCode == Activity.RESULT_OK) {
                 Uri imgUri = data.getData();
@@ -84,6 +78,7 @@ public class MainActivity extends Activity
                 Log.i("Pathhh",realPath);
 
             }
+
         }
 
     }
@@ -99,24 +94,5 @@ public class MainActivity extends Activity
 
         return cursor.getString(column_index_data);
     }
-//    public Uri getImageUri(Context inContext, Bitmap inImage) {
-//        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-//        inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
-//        String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
-//        return Uri.parse(path);
-//    }
-//
-//    public String getRealPathFromURI(Uri uri) {
-//        String path = "";
-//        if (getContentResolver() != null) {
-//            Cursor cursor = getContentResolver().query(uri, null, null, null, null);
-//            if (cursor != null) {
-//                cursor.moveToFirst();
-//                int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
-//                path = cursor.getString(idx);
-//                cursor.close();
-//            }
-//        }
-//        return path;
-//    }
+
 }
