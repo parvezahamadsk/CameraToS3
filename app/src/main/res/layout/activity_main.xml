@@ -11,13 +11,23 @@
         android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.2"
-        android:text="CLICK TO TAKE PICTURE" />
+        android:layout_weight="0.1"
+        android:background="@android:color/holo_purple"
+        android:text="CLICK TO TAKE PICTURE"
+        android:textColor="#ffffff" />
 
     <ImageView
         android:id="@id/imageView"
-        android:layout_weight="0.7"
+        android:layout_weight="0.8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/uploadTS3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"
+        android:background="?android:attr/colorPressedHighlight"
+        android:text="UPLOAD TO S3" />
 
 </LinearLayout>
